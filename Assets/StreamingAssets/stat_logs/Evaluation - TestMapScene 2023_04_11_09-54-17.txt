@@ -1,0 +1,8 @@
+
+2023_04_11_09-54-17 - Evaluation of a Population with size 30, on Track "TestMapScene", using the following GA operators: 
+Selection: DefaultSelectionOperator
+Recombination: RandomRecombination
+Mutation: MutateAllButBestTwo
+FitnessCalculation: DefaultFitnessCalculation
+1	0.1006073
+2	0.1360426

@@ -9,6 +9,9 @@ using System;
 using System.IO;
 #endregion
 
+
+
+
 /// <summary>
 /// Singleton class for managing the evolutionary processes.
 /// </summary>
@@ -137,7 +140,10 @@ public class EvolutionManager : MonoBehaviour
         //Statistics
         if (SaveStatistics)
         {
-            statisticsFileName = "Evaluation - " + GameStateManager.Instance.TrackName + " " + DateTime.Now.ToString("yyyy_MM_dd_HH-mm-ss");
+            Debug.Log("SAVING STATS"); 
+            Directory.CreateDirectory(Application.streamingAssetsPath+ "/stat_logs/");
+            //statisticsFileName = Application.streamingAssetsPath+ "/stat_logs/" +"Evaluation - " + GameStateManager.Instance.TrackName ;
+            statisticsFileName = Application.streamingAssetsPath+ "/stat_logs/" +"Evaluation - " + GameStateManager.Instance.TrackName + " " + DateTime.Now.ToString("yyyy_MM_dd_HH-mm-ss");
             WriteStatisticsFileStart();
             geneticAlgorithm.FitnessCalculationFinished += WriteStatisticsToFile;
         }
@@ -156,12 +162,13 @@ public class EvolutionManager : MonoBehaviour
     // Writes the starting line to the statistics file, stating all genetic algorithm parameters.
     private void WriteStatisticsFileStart()
     {
-        File.WriteAllText(statisticsFileName + ".txt", "Evaluation of a Population with size " + PopulationSize + 
+        
+        File.WriteAllText( statisticsFileName + ".txt", Environment.NewLine + DateTime.Now.ToString("yyyy_MM_dd_HH-mm-ss") + " - Evaluation of a Population with size " + PopulationSize + 
                 ", on Track \"" + GameStateManager.Instance.TrackName + "\", using the following GA operators: " + Environment.NewLine +
                 "Selection: " + geneticAlgorithm.Selection.Method.Name + Environment.NewLine +
                 "Recombination: " + geneticAlgorithm.Recombination.Method.Name + Environment.NewLine +
                 "Mutation: " + geneticAlgorithm.Mutation.Method.Name + Environment.NewLine + 
-                "FitnessCalculation: " + geneticAlgorithm.FitnessCalculationMethod.Method.Name + Environment.NewLine + Environment.NewLine);
+                "FitnessCalculation: " + geneticAlgorithm.FitnessCalculationMethod.Method.Name + Environment.NewLine);
     }
 
     // Appends the current generation count and the evaluation of the best genotype to the statistics file.

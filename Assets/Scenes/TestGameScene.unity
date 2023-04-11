@@ -838,9 +838,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: efbf1de12a7a2407d94957a3ac12858a, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1153,9 +1153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c0b7599e5e45c448830af0c59dbe8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SaveStatistics: 0
+  SaveStatistics: 1
   SaveFirstNGenotype: 0
-  totalGenerationCount: 10
+  totalGenerationCount: 3
   ElitistSelection: 1
   FNNTopology: 05000000040000000300000002000000
   endTrainingMenu: {fileID: 914102581}
