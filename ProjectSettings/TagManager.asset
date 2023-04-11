@@ -7,6 +7,7 @@ TagManager:
   - AI Salmon
   - AI Bear
   - Checkpoint
+  - Stupid Salmon
   layers:
   - Default
   - TransparentFX

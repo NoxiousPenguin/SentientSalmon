@@ -153,6 +153,13 @@ public class GeneticAlgorithm
         private set;
     }
 
+    // used to save fish parameters at the end of training
+    public string saveParameters {
+        get;
+        set;
+    }
+
+
     /// <summary>
     /// Event for when the algorithm is eventually terminated.
     /// </summary>
@@ -189,6 +196,33 @@ public class GeneticAlgorithm
         SortPopulation = true;
         Running = false;
     }
+    
+    // another constructor but this is for when we have a saved parameters array for the salmon
+    public GeneticAlgorithm(uint genotypeParamCount, uint populationSize, string savedParameters)
+    {
+        UnityEngine.Debug.Log("Super Special Minigame constructor was called.");
+        this.PopulationSize = populationSize;
+        currentPopulation = new List<Genotype>((int) populationSize);
+        uint counter = 0; // used for capping the number of fish we spawn in the minigame
+        
+        // first retrieve array of strings representing salmon and their parameter sets
+        string[] genotypeStrings = savedParameters.Split("\n", StringSplitOptions.RemoveEmptyEntries);
+        foreach (string genotypeString in genotypeStrings)
+        {
+
+            // create Genotype from its set of parameters
+            if (counter < populationSize)
+            {
+                currentPopulation.Add(Genotype.LoadFromPlayerPrefs(genotypeString));
+                ++counter;
+            }
+            
+        }
+        
+        GenerationCount = 1;
+        SortPopulation = true;
+        Running = false;
+    }
     #endregion
 
     #region Methods
@@ -217,7 +251,7 @@ public class GeneticAlgorithm
         //Check termination criterion
         if (TerminationCriterion != null && TerminationCriterion(currentPopulation))
         {
-            Terminate();
+            Terminate(currentPopulation);
             return;
         }
 
@@ -238,13 +272,31 @@ public class GeneticAlgorithm
         Evaluation(currentPopulation);
     }
 
-    private void Terminate()
+    private void Terminate(IEnumerable<Genotype> currentPopulation)
     {
+        UnityEngine.Debug.Log("Terminate was called so we are done. This is where I should write things out.");
+
+        // write out the ending parameters...for now its just to a persistant string variable
+        WriteOutParameters(currentPopulation);
         Running = false;
         if (AlgorithmTerminated != null)
             AlgorithmTerminated(this);
     }
 
+    private void WriteOutParameters(IEnumerable<Genotype> currentPopulation)
+    {
+        saveParameters = ""; // overwrite previous parameters for now
+        foreach (Genotype genotype in currentPopulation)
+        {
+            foreach (float p in genotype.GetParameterCopy())
+            {
+                saveParameters += p.ToString() + ";";
+            }
+            saveParameters += "\n";
+        }
+
+        UnityEngine.Debug.Log("Salmon Parameters saved.");
+    }
     #region Static Methods
     #region Default Operators
     /// <summary>

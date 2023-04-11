@@ -187,6 +187,27 @@ public class Genotype : IComparable<Genotype>, IEnumerable<float>
 
         return new Genotype(parameters.ToArray());
     }
+
+    // loads a genotype but this is from a persistent PlayerPref string
+    public static Genotype LoadFromPlayerPrefs(string genotypeString)
+    {
+        List<float> parameterValues = new List<float>();
+        UnityEngine.Debug.Log("The parameters: " + genotypeString);
+        string[] paramStrings = genotypeString.Split(";", StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (string paramString in paramStrings)
+        {
+            float p;
+            if (!float.TryParse(paramString, out p))
+            {
+                throw new ArgumentException("Invalid float parameter format.");
+            }
+
+            parameterValues.Add(p);
+        }
+
+        return new Genotype(parameterValues.ToArray());
+    }
     #endregion
     #endregion
 }

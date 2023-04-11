@@ -212,7 +212,6 @@ public class TrackManager : MonoBehaviour
             {
                 RaceCar last = cars[cars.Count - 1];
                 cars.RemoveAt(cars.Count - 1);
-
                 Destroy(last.Car.gameObject);
             }
         }

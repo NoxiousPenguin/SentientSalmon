@@ -31,6 +31,10 @@ public class EvolutionManager : MonoBehaviour
     private bool SaveStatistics = false;
     private string statisticsFileName;
 
+    // a field to be set that dictates if this is a minigame or not; changes the behavior of how the initial fish are created
+    [SerializeField]
+    private bool isMiniGame = false; // false for now, can change this later
+
     // How many of the first to finish the course should be saved to file, to be set in Unity Editor
     [SerializeField]
     private uint SaveFirstNGenotype = 0;
@@ -40,6 +44,8 @@ public class EvolutionManager : MonoBehaviour
     private int PopulationSize;
 
     public int totalGenerationCount = 10; //  not sure if we should expose this
+
+    private string saveParameters; // parameters for the salmon from a previous training session
 
     // Whether to use elitist selection or remainder stochastic sampling, to be set in Unity Editor
     [SerializeField]
@@ -96,12 +102,54 @@ public class EvolutionManager : MonoBehaviour
         Instance = this;
 
         // hide end training menu
-        endTrainingMenu.SetActive(false);
+        if (endTrainingMenu != null)
+        {
+            endTrainingMenu.SetActive(false);
+        }
     }
 
     void OnEnable()
     {
         PopulationSize = PlayerPrefs.GetInt("popCount", 30);
+        saveParameters = PlayerPrefs.GetString("saveParameters", "");
+
+        if (saveParameters == "")
+        { 
+            if (isMiniGame)
+            {
+                Debug.Log("no saved fish parameters found.");
+            }
+            else {
+                Debug.Log("this isnt a minigame, we dont need to load fish parameters");
+            }
+        }
+        else
+        {
+            if (isMiniGame)
+            {
+                Debug.Log("Loading these parameters for the MiniGame:\n" + saveParameters);
+            }
+            else {
+                Debug.Log("This isnt a minigame, we dont need to load fish parameters");
+            }
+        }
+    }
+
+    void OnDisable()
+    {
+        // only save parameters if we are at the end of a simulation
+        if (!isMiniGame)
+        {
+            if (geneticAlgorithm.saveParameters == null)
+            {
+                Debug.Log("no fish parameters to save.");
+            }
+            else {
+                Debug.Log("Saving these parameters:\n" + geneticAlgorithm.saveParameters);
+            }
+            
+            PlayerPrefs.SetString("saveParameters", geneticAlgorithm.saveParameters);
+        }
     }
     #endregion
 
@@ -114,8 +162,16 @@ public class EvolutionManager : MonoBehaviour
         //Create neural network to determine parameter count
         NeuralNetwork nn = new NeuralNetwork(FNNTopology);
 
-        //Setup genetic algorithm
-        geneticAlgorithm = new GeneticAlgorithm((uint) nn.WeightCount, (uint) PopulationSize);
+        //Setup genetic algorithm; if minigame then reconstruct the fish from saved parameters
+        if (isMiniGame && saveParameters != "")
+        {
+            geneticAlgorithm = new GeneticAlgorithm((uint) nn.WeightCount, (uint) PopulationSize, saveParameters);
+        }
+
+        else
+        {
+            geneticAlgorithm = new GeneticAlgorithm((uint) nn.WeightCount, (uint) PopulationSize);
+        }
         genotypesSaved = 0;
 
         geneticAlgorithm.Evaluation = StartEvaluation;
@@ -219,7 +275,10 @@ public class EvolutionManager : MonoBehaviour
         Debug.Log("Training Over.");
 
         // prompt the end of sim menu
-        endTrainingMenu.SetActive(true);
+        if (endTrainingMenu != null)
+        {
+            endTrainingMenu.SetActive(true);
+        }
     }
 
     // Restarts the algorithm after a specific wait time second wait
