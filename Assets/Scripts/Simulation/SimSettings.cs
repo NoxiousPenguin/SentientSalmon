@@ -18,7 +18,8 @@ public class SimSettings : MonoBehaviour
     public TextMeshProUGUI bearSpeedValueText;
     public TextMeshProUGUI bearAggressionValueText;
     public TextMeshProUGUI currentResistanceValueText;
-    public string[] mapNames = {"Autumn Map", "Spring Map", "Winter Map"};
+    public Button startButton;
+    public string[] mapNames = {"Autumn Falls", "Lazy Summer", "Icy Islands"};
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class SimSettings : MonoBehaviour
        bearAggressionSlider.onValueChanged.AddListener(delegate {ChangeSliderValue(bearAggressionSlider, bearAggressionValueText);});
        currentResistanceSlider.onValueChanged.AddListener(delegate {ChangeSliderValue(currentResistanceSlider, currentResistanceValueText);});
        mapSelection.onValueChanged.AddListener(delegate {ChangeDropdownValue(mapSelection);});
+       startButton.onClick.AddListener(delegate { StartTrainingButton(); });
 
        // display default slider values...can be modified in Unity Editor
        ChangeSliderValue(popCountSlider, popCountValueText);
@@ -71,15 +73,15 @@ public class SimSettings : MonoBehaviour
 
     public void StartTrainingButton()
     {
-        if (mapNames[mapSelection.value] == "Autumn Map")
+        if (mapNames[mapSelection.value] == "Autumn Falls")
         {
             SceneManager.LoadScene("Map - Autumn Falls");
         }
-        else if (mapNames[mapSelection.value] == "Spring Map")
+        else if (mapNames[mapSelection.value] == "Lazy Summer")
         {
             SceneManager.LoadScene("Map - The Lazy Summer");
         }
-        else if (mapNames[mapSelection.value] == "Winter Map")
+        else if (mapNames[mapSelection.value] == "Icy Islands")
         {
             SceneManager.LoadScene("Map - Icy Islands");
         }
