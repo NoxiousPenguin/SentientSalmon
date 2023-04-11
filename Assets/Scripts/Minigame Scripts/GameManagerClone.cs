@@ -19,6 +19,7 @@ public class GameManagerClone : MonoBehaviour
     private void Start(){
         gamePaused = false;
         gameOver = false;
+        EvolutionManager.Instance.StartEvolution();
     }
 
     private void Update(){
@@ -66,4 +67,6 @@ public class GameManagerClone : MonoBehaviour
         tutorial.SetActive(false);
         gamePaused = false;
     }
+
+    
 }
