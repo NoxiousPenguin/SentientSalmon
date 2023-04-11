@@ -2265,6 +2265,7 @@ GameObject:
   - component: {fileID: 450047336}
   - component: {fileID: 450047335}
   - component: {fileID: 450047334}
+  - component: {fileID: 450047337}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -2387,6 +2388,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450047332}
   m_CullTransparentMesh: 1
+--- !u!114 &450047337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450047332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5f98a98d75e4d7895b85cb6cc6bf27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popCountSlider: {fileID: 1168214801}
+  salmonMaxSpeedSlider: {fileID: 1438799445}
+  bearSpeedSlider: {fileID: 1032311093}
+  bearAggressionSlider: {fileID: 260202174}
+  currentResistanceSlider: {fileID: 1695666087}
+  mapSelection: {fileID: 1744049117}
+  popCountValueText: {fileID: 1910016317}
+  salmonMaxSpeedValueText: {fileID: 186345345}
+  bearSpeedValueText: {fileID: 146004536}
+  bearAggressionValueText: {fileID: 1754694938}
+  currentResistanceValueText: {fileID: 684346979}
+  startButton: {fileID: 450047334}
+  mapNames:
+  - Autumn Falls
+  - Lazy Summer
+  - Icy Islands
 --- !u!1 &498024201
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,7 +3113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Autumn Map
+  m_text: Autumn Falls
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3935,7 +3964,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1641493994}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7227,7 +7256,7 @@ RectTransform:
   m_Father: {fileID: 1340679985}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.000000059604645}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -7726,11 +7755,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Autumn Map
+    - m_Text: Autumn Falls
       m_Image: {fileID: 0}
-    - m_Text: Spring Map
+    - m_Text: Lazy Summer
       m_Image: {fileID: 0}
-    - m_Text: Winter Map
+    - m_Text: Icy Islands
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8844,6 +8873,7 @@ MonoBehaviour:
   bearSpeedValueText: {fileID: 146004536}
   bearAggressionValueText: {fileID: 1754694938}
   currentResistanceValueText: {fileID: 684346979}
+  startButton: {fileID: 0}
   mapNames:
   - Autumn Map
   - Spring Map
