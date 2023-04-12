@@ -30,11 +30,11 @@ public class GeneticAlgorithm
     /// <summary>
     /// Default probability of a parameter being mutated.
     /// </summary>
-    public const float DefMutationProb = 0.3f;
+    public const float DefMutationProb = 0.4f;
     /// <summary>
     /// Default amount by which parameters may be mutated.
     /// </summary>
-    public const float DefMutationAmount = 2.0f;
+    public const float DefMutationAmount = 0.3f;
     /// <summary>
     /// Default percent of genotypes in a new population that are mutated.
     /// </summary>
