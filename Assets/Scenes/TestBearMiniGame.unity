@@ -2796,7 +2796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMenu: {fileID: 706657501}
-  scoreText: {fileID: 2090872729}
+  scoreText: {fileID: 1260221794}
   pauseMenu: {fileID: 404758255}
   tutorial: {fileID: 1597185068}
   timeAndScore: {fileID: 393977604}
