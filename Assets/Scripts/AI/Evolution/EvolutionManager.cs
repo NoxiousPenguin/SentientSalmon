@@ -7,6 +7,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using System.IO;
+using TMPro;
 #endregion
 
 
@@ -279,6 +280,9 @@ public class EvolutionManager : MonoBehaviour
         if (endTrainingMenu != null)
         {
             endTrainingMenu.SetActive(true);
+            TextMeshProUGUI evalText = GameObject.Find("Evaluation").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI endTrainingScoreText = GameObject.Find("EndGameScoreText").GetComponent<TextMeshProUGUI>();
+            endTrainingScoreText.text = "Score: " + evalText.text;
         }
     }
 

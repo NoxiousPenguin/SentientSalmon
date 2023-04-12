@@ -25,7 +25,7 @@ public class CarController : MonoBehaviour
     #endregion
 
     // Maximum delay in seconds between the collection of two checkpoints until this car dies.
-    private const float MAX_CHECKPOINT_DELAY = 7;
+    private const float MAX_CHECKPOINT_DELAY = 3;
 
     /// <summary>
     /// The underlying AI agent of this car.

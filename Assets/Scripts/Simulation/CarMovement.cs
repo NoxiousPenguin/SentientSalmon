@@ -21,7 +21,7 @@ public class CarMovement : MonoBehaviour
     private float MAX_VEL = 20f;
     private float ACCELERATION = 8f;
     private float VEL_FRICT = 2f;
-    private float TURN_SPEED = 100;
+    private float TURN_SPEED = 200;
 
     private CarController controller;
 
