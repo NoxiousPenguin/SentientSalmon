@@ -11,7 +11,17 @@ public class CatchFish : MonoBehaviour
     void Start(){
         score = 0;
     }
+
+    // not really sure why the other method is incompatible with the smart salmon
+    void OnCollisionEnter2D(Collision2D collision) {
+
+        if (collision.collider.gameObject.tag == "AI Salmon") {
+            score++;
+            scoreText.text = score.ToString();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other) {
+
         if (other.gameObject.tag == "AI Salmon"){
             Destroy(other.gameObject);
             score++;

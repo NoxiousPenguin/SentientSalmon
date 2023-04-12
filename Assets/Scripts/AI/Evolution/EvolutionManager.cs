@@ -166,6 +166,7 @@ public class EvolutionManager : MonoBehaviour
         if (isMiniGame && saveParameters != "")
         {
             geneticAlgorithm = new GeneticAlgorithm((uint) nn.WeightCount, (uint) PopulationSize, saveParameters);
+            geneticAlgorithm.InitialisePopulation = GeneticAlgorithm.DoNotPopulationInitialisation; // should ignore the randomization portion of parameters
         }
 
         else
