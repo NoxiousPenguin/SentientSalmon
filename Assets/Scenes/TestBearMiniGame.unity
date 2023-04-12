@@ -16859,7 +16859,7 @@ MonoBehaviour:
   SaveStatistics: 0
   isMiniGame: 1
   SaveFirstNGenotype: 0
-  totalGenerationCount: 10
+  totalGenerationCount: 0
   ElitistSelection: 1
   FNNTopology: 05000000040000000300000002000000
   endTrainingMenu: {fileID: 0}

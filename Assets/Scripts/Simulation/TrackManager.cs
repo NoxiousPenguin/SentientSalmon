@@ -284,7 +284,11 @@ public class TrackManager : MonoBehaviour
             return 1;
 
         //Calculate distance to next checkpoint
-        float checkPointDistance = Vector2.Distance(car.transform.position, checkpoints[curCheckpointIndex].transform.position);
+
+        // compute the point on the checkpoint surface that is closest to the salmon's position
+        Vector3 closestPoint = checkpoints[curCheckpointIndex].bounds.ClosestPoint(car.transform.position);
+        float checkPointDistance = Vector2.Distance(car.transform.position, closestPoint);
+        // float checkPointDistance = Vector2.Distance(car.transform.position, checkpoints[curCheckpointIndex].transform.position);
        // Debug.Log("Distance to next checkpoint: " + checkPointDistance);
 
         //Check if checkpoint can be captured

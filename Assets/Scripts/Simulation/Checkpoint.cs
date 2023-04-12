@@ -17,6 +17,12 @@ public class Checkpoint : MonoBehaviour
     /// </summary>
     public float CaptureRadius = 5;
     private SpriteRenderer spriteRenderer;
+    
+    // bounds are pretty much the box that surrounds the transform vector
+    public Bounds bounds {
+        get;
+        set;
+    }
 
     /// <summary>
     /// The reward value earned by capturing this checkpoint.
@@ -68,6 +74,8 @@ public class Checkpoint : MonoBehaviour
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        Debug.Log(spriteRenderer.bounds);
+        bounds = spriteRenderer.bounds;
     }
     #endregion
 
