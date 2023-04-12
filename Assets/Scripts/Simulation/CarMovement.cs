@@ -92,16 +92,17 @@ public class CarMovement : MonoBehaviour
     private void ApplyInput()
     {
         //Cap input 
-        if (verticalInput > 1)
-            verticalInput = 1;
-        else if (verticalInput < -1)
-            verticalInput = -1;
+        if (verticalInput > 1.5)
+            verticalInput = 1.5;
 
+        else if (verticalInput < 0)
+            verticalInput = -verticalInput; // normalize to only positive y direction
+/*
         if (horizontalInput > 1)
             horizontalInput = 1;
         else if (horizontalInput < -1)
             horizontalInput = -1;
-
+*/
         //Car can only accelerate further if velocity is lower than engineForce * MAX_VEL
         bool canAccelerate = false;
         if (verticalInput < 0)

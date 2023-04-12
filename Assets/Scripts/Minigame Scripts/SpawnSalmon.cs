@@ -42,7 +42,7 @@ public class SpawnSalmon : MonoBehaviour
             float x = Random.Range(xMin, xMax);
             float y = Random.Range(yMin, yMax);
 
-            Instantiate(salmonPrefab, new Vector3(x, y, 0), Quaternion.identity);
+           // Instantiate(salmonPrefab, new Vector3(x, y, 0), Quaternion.identity);
         }
 
         UpdateTimerText();

@@ -310,6 +310,12 @@ public class GeneticAlgorithm
             genotype.SetRandomParameters(DefInitParamMin, DefInitParamMax);
     }
 
+    public static void DoNotPopulationInitialisation(IEnumerable<Genotype> population)
+    {
+        // do nothing here because we are copying fish parameters, no need to randomize
+        UnityEngine.Debug.Log("No need to do random init. of parameters");
+    }
+
     public static void AsyncEvaluation(IEnumerable<Genotype> currentPopulation)
     {
         //At this point the async evaluation should be started and after it is finished EvaluationFinished should be called
