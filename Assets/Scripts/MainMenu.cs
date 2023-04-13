@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     }
     public void MiniGameButton()
     {
-        SceneManager.LoadScene("BearMiniGame");
+        SceneManager.LoadScene("TestBearMiniGame");
     }
 
     public void ExitButton()

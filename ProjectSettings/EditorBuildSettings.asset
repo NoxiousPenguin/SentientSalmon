@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/TestGameScene.unity
+    path: Assets/Scenes/AutumnFallsGameScene.unity
     guid: ab296c67496954a12ba3719e68b98947
   - enabled: 1
-    path: Assets/Scenes/TestMapScene.unity
+    path: Assets/Scenes/Autumn Falls Map.unity
     guid: e3f225fe5f3324d478f10e388374d3f3
   - enabled: 1
     path: Assets/Scenes/GUI.unity
