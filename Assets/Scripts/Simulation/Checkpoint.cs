@@ -15,7 +15,8 @@ public class Checkpoint : MonoBehaviour
     /// <summary>
     /// The radius in Unity units in which this checkpoint can be captured.
     /// </summary>
-    public float CaptureRadius = 5;
+    [HideInInspector]
+    public float CaptureRadius = 1.0f;
     private SpriteRenderer spriteRenderer;
     
     // bounds are pretty much the box that surrounds the transform vector

@@ -4,6 +4,8 @@
 
 #region Includes
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System;
 using System.IO;
@@ -90,6 +92,11 @@ public class EvolutionManager : MonoBehaviour
     {
         get; set;
     }
+
+    public float relativeFinish
+    {
+        get; set;
+    }
     #endregion
 
     #region Constructors
@@ -106,6 +113,20 @@ public class EvolutionManager : MonoBehaviour
         if (endTrainingMenu != null)
         {
             endTrainingMenu.SetActive(false);
+            Button[] buttons = endTrainingMenu.GetComponentsInChildren<Button>();
+            foreach (Button button in buttons)
+            {
+                if (button.name == "MainMenuButton")
+                {
+                    button.onClick.AddListener(delegate { BackToMainMenuButton(); });
+                }
+
+                else if (button.name == "RestartButton")
+                {
+                    // add callback that would restart the training
+                    button.onClick.AddListener(delegate { TrainAgainButton(); });
+                }
+            }
         }
     }
 
@@ -113,6 +134,7 @@ public class EvolutionManager : MonoBehaviour
     {
         PopulationSize = PlayerPrefs.GetInt("popCount", 30);
         saveParameters = PlayerPrefs.GetString("saveParameters", "");
+        Debug.Log("Population Size: " + PopulationSize);
 
         if (saveParameters == "")
         { 
@@ -181,8 +203,10 @@ public class EvolutionManager : MonoBehaviour
         if (ElitistSelection)
         {
             //Second configuration
+            // geneticAlgorithm.Selection = RemainderStochasticSampling;
             geneticAlgorithm.Selection = GeneticAlgorithm.DefaultSelectionOperator;
-            geneticAlgorithm.Recombination = RandomRecombination;
+            // geneticAlgorithm.Recombination = RandomRecombination;
+            geneticAlgorithm.Recombination = GeneticAlgorithm.DefaultRecombinationOperator;
             geneticAlgorithm.Mutation = MutateAllButBestTwo;
         }
         else
@@ -280,9 +304,9 @@ public class EvolutionManager : MonoBehaviour
         if (endTrainingMenu != null)
         {
             endTrainingMenu.SetActive(true);
-            TextMeshProUGUI evalText = GameObject.Find("Evaluation").GetComponent<TextMeshProUGUI>();
-            TextMeshProUGUI endTrainingScoreText = GameObject.Find("EndGameScoreText").GetComponent<TextMeshProUGUI>();
-            endTrainingScoreText.text = "Score: " + evalText.text;
+            //TextMeshProUGUI evalText = GameObject.Find("Evaluation").GetComponent<TextMeshProUGUI>();
+            //TextMeshProUGUI endTrainingScoreText = GameObject.Find("EndGameScoreText").GetComponent<TextMeshProUGUI>();
+            //endTrainingScoreText.text = "Score: " + evalText.text;
         }
     }
 
@@ -410,6 +434,24 @@ public class EvolutionManager : MonoBehaviour
             if (randomizer.NextDouble() < GeneticAlgorithm.DefMutationPerc)
                 GeneticAlgorithm.MutateGenotype(genotype, GeneticAlgorithm.DefMutationProb, GeneticAlgorithm.DefMutationAmount);
         }
+    }
+
+    // callback function for when the main menu button is pressed
+    private void BackToMainMenuButton()
+    {
+        Debug.Log("Main menu button was pressed.");
+        SceneManager.LoadScene("TitleScreen");
+    }
+
+    private void TrainAgainButton()
+    {
+        Debug.Log("Retrain button was pressed.");
+        if (endTrainingMenu != null)
+            endTrainingMenu.SetActive(false);
+        
+        averageEvaluation = 0;
+        relativeFinish = 0;
+        RestartAlgorithm(0.1f); // arg is time delay
     }
     #endregion
     #endregion

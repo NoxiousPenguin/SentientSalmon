@@ -1154,8 +1154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SaveStatistics: 1
+  isMiniGame: 0
   SaveFirstNGenotype: 0
-  totalGenerationCount: 3
+  totalGenerationCount: 5
   ElitistSelection: 1
   FNNTopology: 05000000040000000300000002000000
   endTrainingMenu: {fileID: 914102581}

@@ -19,7 +19,7 @@ public class CarMovement : MonoBehaviour
 
     //Movement constants
     private float MAX_VEL = 20f;
-    private float ACCELERATION = 8f;
+    private float ACCELERATION = 12.5f;
     private float VEL_FRICT = 2f;
     private float TURN_SPEED = 200;
 
@@ -97,12 +97,7 @@ public class CarMovement : MonoBehaviour
 
         else if (verticalInput < 0)
             verticalInput = -verticalInput; // normalize to only positive y direction
-/*
-        if (horizontalInput > 1)
-            horizontalInput = 1;
-        else if (horizontalInput < -1)
-            horizontalInput = -1;
-*/
+
         //Car can only accelerate further if velocity is lower than engineForce * MAX_VEL
         bool canAccelerate = false;
         if (verticalInput < 0)
@@ -124,7 +119,7 @@ public class CarMovement : MonoBehaviour
         
         //Set rotation
         Rotation = transform.rotation;
-        Rotation *= Quaternion.AngleAxis((float)-horizontalInput * TURN_SPEED * Time.deltaTime, new Vector3(0, 0, 1));
+        Rotation *= Quaternion.AngleAxis((float)horizontalInput * TURN_SPEED * Time.deltaTime, new Vector3(0, 0, 1));
     }
 
     /// <summary>

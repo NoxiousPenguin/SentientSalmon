@@ -19,7 +19,7 @@ public class SimSettings : MonoBehaviour
     public TextMeshProUGUI bearAggressionValueText;
     public TextMeshProUGUI currentResistanceValueText;
     public Button startButton;
-    public string[] mapNames = {"Autumn Falls", "Lazy Summer", "Icy Islands"};
+    public static string[] mapNames = {"Autumn Falls", "Lazy Summer", "Icy Islands"};
 
     void Start()
     {
@@ -73,9 +73,12 @@ public class SimSettings : MonoBehaviour
 
     public void StartTrainingButton()
     {
+
+        PlayerPrefs.SetInt("mapSelection", mapSelection.value); // for the gamestatemanager
+
         if (mapNames[mapSelection.value] == "Autumn Falls")
         {
-            SceneManager.LoadScene("Map - Autumn Falls");
+            SceneManager.LoadScene("AutumnFallsGameScene");
         }
         else if (mapNames[mapSelection.value] == "Lazy Summer")
         {
