@@ -20,8 +20,8 @@ public class Sensor : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     // Max and min readings
-    private const float MAX_DIST = 10f;
-    private const float MIN_DIST = 0.01f;
+    private const float MAX_DIST = 12f;
+    private const float MIN_DIST = 0.1f;
 
     /// <summary>
     /// The current sensor readings in percent of maximum distance.

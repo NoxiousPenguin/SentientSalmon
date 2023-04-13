@@ -25,20 +25,20 @@ public class GeneticAlgorithm
     /// <summary>
     /// Default probability of a parameter being swapped during crossover.
     /// </summary>
-    public const float DefCrossSwapProb = 0.6f;
+    public const float DefCrossSwapProb = 0.5f;
 
     /// <summary>
     /// Default probability of a parameter being mutated.
     /// </summary>
-    public const float DefMutationProb = 0.4f;
+    public const float DefMutationProb = 0.9f;
     /// <summary>
     /// Default amount by which parameters may be mutated.
     /// </summary>
-    public const float DefMutationAmount = 0.3f;
+    public const float DefMutationAmount = 10.0f;
     /// <summary>
     /// Default percent of genotypes in a new population that are mutated.
     /// </summary>
-    public const float DefMutationPerc = 1.0f;
+    public const float DefMutationPerc = 0.15f;
     #endregion
 
     #region Operator Delegates

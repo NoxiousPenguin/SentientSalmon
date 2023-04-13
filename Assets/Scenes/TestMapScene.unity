@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: SecondBestSprite
       value: 
       objectReference: {fileID: 834476313}
+    - target: {fileID: 1179730722103264890, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1226415655430360259, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
       propertyPath: m_Name
       value: Map - Autumn Falls
@@ -194,9 +198,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1601562227810269515, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2319368217360859094, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437634532786544911, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435871363645164900, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446790741751286005, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484596983551595315, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588321084637174147, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857775313063473424, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504004769598076618, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810577356218576309, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826958896639026553, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193728514248877805, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f99f054d7bf96c04a933d0a2b3c2baa6, type: 3}
@@ -217,11 +265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348790796148043360, guid: 7d78039b44da7413894d35114ecc879d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 4348790796148043360, guid: 7d78039b44da7413894d35114ecc879d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.88
+      value: -24.04
       objectReference: {fileID: 0}
     - target: {fileID: 4348790796148043360, guid: 7d78039b44da7413894d35114ecc879d, type: 3}
       propertyPath: m_LocalPosition.z
