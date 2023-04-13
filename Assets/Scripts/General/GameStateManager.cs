@@ -48,6 +48,8 @@ public class GameStateManager : MonoBehaviour
         }
         Instance = this;
 
+        TrackName = SimSettings.mapNames[PlayerPrefs.GetInt("mapSelection", 0)] + " Map";
+
         //Load gui scene
         SceneManager.LoadScene("GUI", LoadSceneMode.Additive);
 

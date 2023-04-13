@@ -4,6 +4,8 @@
 
 #region Includes
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System;
 using System.IO;
@@ -111,6 +113,20 @@ public class EvolutionManager : MonoBehaviour
         if (endTrainingMenu != null)
         {
             endTrainingMenu.SetActive(false);
+            Button[] buttons = endTrainingMenu.GetComponentsInChildren<Button>();
+            foreach (Button button in buttons)
+            {
+                if (button.name == "MainMenuButton")
+                {
+                    button.onClick.AddListener(delegate { BackToMainMenuButton(); });
+                }
+
+                else if (button.name == "RestartButton")
+                {
+                    // add callback that would restart the training
+                    button.onClick.AddListener(delegate { TrainAgainButton(); });
+                }
+            }
         }
     }
 
@@ -418,6 +434,24 @@ public class EvolutionManager : MonoBehaviour
             if (randomizer.NextDouble() < GeneticAlgorithm.DefMutationPerc)
                 GeneticAlgorithm.MutateGenotype(genotype, GeneticAlgorithm.DefMutationProb, GeneticAlgorithm.DefMutationAmount);
         }
+    }
+
+    // callback function for when the main menu button is pressed
+    private void BackToMainMenuButton()
+    {
+        Debug.Log("Main menu button was pressed.");
+        SceneManager.LoadScene("TitleScreen");
+    }
+
+    private void TrainAgainButton()
+    {
+        Debug.Log("Retrain button was pressed.");
+        if (endTrainingMenu != null)
+            endTrainingMenu.SetActive(false);
+        
+        averageEvaluation = 0;
+        relativeFinish = 0;
+        RestartAlgorithm(0.1f); // arg is time delay
     }
     #endregion
     #endregion
