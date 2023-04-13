@@ -90,6 +90,11 @@ public class EvolutionManager : MonoBehaviour
     {
         get; set;
     }
+
+    public float relativeFinish
+    {
+        get; set;
+    }
     #endregion
 
     #region Constructors
@@ -113,6 +118,7 @@ public class EvolutionManager : MonoBehaviour
     {
         PopulationSize = PlayerPrefs.GetInt("popCount", 30);
         saveParameters = PlayerPrefs.GetString("saveParameters", "");
+        Debug.Log("Population Size: " + PopulationSize);
 
         if (saveParameters == "")
         { 
@@ -181,8 +187,10 @@ public class EvolutionManager : MonoBehaviour
         if (ElitistSelection)
         {
             //Second configuration
+            // geneticAlgorithm.Selection = RemainderStochasticSampling;
             geneticAlgorithm.Selection = GeneticAlgorithm.DefaultSelectionOperator;
-            geneticAlgorithm.Recombination = RandomRecombination;
+            // geneticAlgorithm.Recombination = RandomRecombination;
+            geneticAlgorithm.Recombination = GeneticAlgorithm.DefaultRecombinationOperator;
             geneticAlgorithm.Mutation = MutateAllButBestTwo;
         }
         else
@@ -280,9 +288,9 @@ public class EvolutionManager : MonoBehaviour
         if (endTrainingMenu != null)
         {
             endTrainingMenu.SetActive(true);
-            TextMeshProUGUI evalText = GameObject.Find("Evaluation").GetComponent<TextMeshProUGUI>();
-            TextMeshProUGUI endTrainingScoreText = GameObject.Find("EndGameScoreText").GetComponent<TextMeshProUGUI>();
-            endTrainingScoreText.text = "Score: " + evalText.text;
+            //TextMeshProUGUI evalText = GameObject.Find("Evaluation").GetComponent<TextMeshProUGUI>();
+            //TextMeshProUGUI endTrainingScoreText = GameObject.Find("EndGameScoreText").GetComponent<TextMeshProUGUI>();
+            //endTrainingScoreText.text = "Score: " + evalText.text;
         }
     }
 

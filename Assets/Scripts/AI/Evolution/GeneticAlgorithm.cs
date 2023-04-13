@@ -30,15 +30,15 @@ public class GeneticAlgorithm
     /// <summary>
     /// Default probability of a parameter being mutated.
     /// </summary>
-    public const float DefMutationProb = 0.9f;
+    public const float DefMutationProb = 0.8f;
     /// <summary>
     /// Default amount by which parameters may be mutated.
     /// </summary>
-    public const float DefMutationAmount = 10.0f;
+    public const float DefMutationAmount = 15.0f;
     /// <summary>
     /// Default percent of genotypes in a new population that are mutated.
     /// </summary>
-    public const float DefMutationPerc = 0.15f;
+    public const float DefMutationPerc = 0.1f;
     #endregion
 
     #region Operator Delegates
@@ -330,15 +330,19 @@ public class GeneticAlgorithm
         //First calculate average evaluation of whole population
         uint populationSize = 0;
         float overallEvaluation = 0;
+        int overallFinished = 0;
         foreach (Genotype genotype in currentPopulation)
         {
             overallEvaluation += genotype.Evaluation;
+            if (genotype.Evaluation >= 1) ++overallFinished;
             populationSize++;
         }
 
         float averageEvaluation = overallEvaluation / populationSize;
+        float relativeFinish = (float)overallFinished / populationSize; // get fraction of number who finished from total
         UnityEngine.Debug.Log("average evaluation is: " + averageEvaluation);
         EvolutionManager.Instance.averageEvaluation = averageEvaluation;
+        EvolutionManager.Instance.relativeFinish = relativeFinish;
         
         //Now assign fitness with formula fitness = evaluation / averageEvaluation
         foreach (Genotype genotype in currentPopulation)

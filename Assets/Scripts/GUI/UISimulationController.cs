@@ -43,7 +43,11 @@ public class UISimulationController : MonoBehaviour
 
     // track average distance of total track a fish is traveling
     private float averageDistance;
-    private uint generationCount;
+    private float relativeFinish;
+
+    // the weights for the computed fitness score
+    private const int AVG_DISTANCE_WEIGHT = 7;
+    private const int MAP_COMPLETED_WEIGHT = 3;
     //[SerializeField]
     //private UINeuralNetworkPanel NeuralNetPanel;
     #endregion
@@ -52,8 +56,8 @@ public class UISimulationController : MonoBehaviour
     void Awake()
     {
         averageDistance = 0;
+        relativeFinish = 0;
         Evaluation.text = "";
-        generationCount = 1;
     }
     #endregion
 
@@ -69,11 +73,15 @@ public class UISimulationController : MonoBehaviour
                     InputTexts[i].text = Target.CurrentControlInputs[i].ToString();
             }
 
-            if (generationCount < EvolutionManager.Instance.GenerationCount)
+            // for now we just compute fitness score of latest generation
+            averageDistance = EvolutionManager.Instance.averageEvaluation;
+            relativeFinish = EvolutionManager.Instance.relativeFinish;
+            Evaluation.text = (AVG_DISTANCE_WEIGHT * averageDistance + MAP_COMPLETED_WEIGHT * relativeFinish).ToString("N2"); // 10^-2 precision
+            GameObject endGameScoreObject = GameObject.Find("EndGameScoreText");
+            if (endGameScoreObject != null)
             {
-                averageDistance += EvolutionManager.Instance.averageEvaluation;
-                Evaluation.text = ((averageDistance / generationCount) * 100).ToString("N2"); // only show 10^2 precision
-                generationCount = EvolutionManager.Instance.GenerationCount;
+                TextMeshProUGUI endTrainingScoreText = endGameScoreObject.GetComponent<TextMeshProUGUI>();
+                endTrainingScoreText.text = "Score: " + Evaluation.text;
             }
             
             GenerationCount.text = EvolutionManager.Instance.GenerationCount.ToString() + "/" + EvolutionManager.Instance.totalGenerationCount.ToString();
