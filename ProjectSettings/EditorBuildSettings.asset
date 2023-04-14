@@ -35,4 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestBearMiniGame.unity
     guid: 113b86d1719210a438ab62f955c73540
+  - enabled: 1
+    path: Assets/Scenes/IcyIslandsGameScene.unity
+    guid: df863ed6831521546aba455aee45482e
+  - enabled: 1
+    path: Assets/Scenes/Icy Islands Map.unity
+    guid: 36e2ee0e7bb4b5f44bca5889cb844413
+  - enabled: 1
+    path: Assets/Scenes/LazySummerGameScene.unity
+    guid: 51e1669e73c409b469bb59983580ba28
   m_configObjects: {}
