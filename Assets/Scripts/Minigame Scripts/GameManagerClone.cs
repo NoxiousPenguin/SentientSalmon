@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManagerClone : MonoBehaviour
@@ -16,6 +17,12 @@ public class GameManagerClone : MonoBehaviour
     private bool gamePaused;
     private bool gameOver;
 
+    void Awake()
+    {
+        ActivateButtons(gameMenu);
+        ActivateButtons(pauseMenu);
+    } 
+            
     private void Start(){
         gamePaused = false;
         gameOver = false;
@@ -68,5 +75,26 @@ public class GameManagerClone : MonoBehaviour
         gamePaused = false;
     }
 
-    
+    // adds callback functions to buttons dependent on its name
+    private void ActivateButtons(GameObject gameObject)
+    {
+        if (gameObject != null)
+        {
+            Button[] buttons = gameObject.GetComponentsInChildren<Button>();
+            foreach (Button button in buttons)
+            {
+                Debug.Log("Name of button: " + button.name);
+                if (button.name == "MainMenuButton")
+                {
+                    button.onClick.AddListener(delegate { GoToMainMenu(); });
+                }
+
+                else if (button.name == "RestartButton")
+                {
+                    button.onClick.AddListener(delegate { RestartGame(); });
+                }
+
+            }
+        }
+    }
 }

@@ -73,6 +73,12 @@ public class CarController : MonoBehaviour
         private set;
     }
 
+    public Collider2D Collider
+    {
+        get;
+        private set;
+    }
+
     private Sensor[] sensors;
     private float timeSinceLastCheckpoint;
     #endregion
@@ -84,6 +90,7 @@ public class CarController : MonoBehaviour
         Movement = GetComponent<CarMovement>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
         sensors = GetComponentsInChildren<Sensor>();
+        Collider = GetComponent<Collider2D>();
     }
     void Start()
     {
@@ -102,6 +109,7 @@ public class CarController : MonoBehaviour
     {
         Movement.enabled = true;
         SpriteRenderer.enabled = true; // make fish visible again
+        Collider.enabled = true;
         timeSinceLastCheckpoint = 0;
 
         // this is for setting gameobjects
@@ -152,6 +160,7 @@ public class CarController : MonoBehaviour
         Movement.Stop();
         Movement.enabled = false;
         SpriteRenderer.enabled = false; // make invisible, but maybe change its color?
+        Collider.enabled = false;
 
         foreach (Sensor s in sensors)
             s.Hide();
