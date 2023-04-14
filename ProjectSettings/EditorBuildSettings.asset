@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map - Autumn Falls.unity
     guid: b13f9373a67ed594ba46a1bbaf5dd8cf
+  - enabled: 1
+    path: Assets/Scenes/TestBearMiniGame.unity
+    guid: 113b86d1719210a438ab62f955c73540
   m_configObjects: {}

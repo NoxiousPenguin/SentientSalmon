@@ -8,12 +8,14 @@ public class SimSettings : MonoBehaviour
 {
     // Start is called before the first frame update
     public Slider popCountSlider;
+    public Slider totalGenerationCountSlider;
     public Slider salmonMaxSpeedSlider;
     public Slider bearSpeedSlider;
     public Slider bearAggressionSlider;
     public Slider currentResistanceSlider;
     public TMP_Dropdown mapSelection;
     public TextMeshProUGUI popCountValueText;
+    public TextMeshProUGUI totalGenerationCountText;
     public TextMeshProUGUI salmonMaxSpeedValueText;
     public TextMeshProUGUI bearSpeedValueText;
     public TextMeshProUGUI bearAggressionValueText;
@@ -25,6 +27,7 @@ public class SimSettings : MonoBehaviour
     {
        // add listeners to sliders; invoke methods when value of slider changes 
        popCountSlider.onValueChanged.AddListener(delegate {ChangeSliderValue(popCountSlider, popCountValueText);});
+       totalGenerationCountSlider.onValueChanged.AddListener(delegate {ChangeSliderValue(totalGenerationCountSlider, totalGenerationCountText);});
        salmonMaxSpeedSlider.onValueChanged.AddListener(delegate {ChangeSliderValue(salmonMaxSpeedSlider, salmonMaxSpeedValueText);});
        bearSpeedSlider.onValueChanged.AddListener(delegate {ChangeSliderValue(bearSpeedSlider, bearSpeedValueText);});
        bearAggressionSlider.onValueChanged.AddListener(delegate {ChangeSliderValue(bearAggressionSlider, bearAggressionValueText);});
@@ -34,6 +37,7 @@ public class SimSettings : MonoBehaviour
 
        // display default slider values...can be modified in Unity Editor
        ChangeSliderValue(popCountSlider, popCountValueText);
+       ChangeSliderValue(totalGenerationCountSlider, totalGenerationCountText);
        ChangeSliderValue(salmonMaxSpeedSlider, salmonMaxSpeedValueText);
        ChangeSliderValue(bearSpeedSlider, bearSpeedValueText);
        ChangeSliderValue(bearAggressionSlider, bearAggressionValueText);
