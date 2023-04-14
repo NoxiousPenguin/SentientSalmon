@@ -87,11 +87,11 @@ public class SimSettings : MonoBehaviour
         }
         else if (mapNames[mapSelection.value] == "Lazy Summer")
         {
-            SceneManager.LoadScene("Map - The Lazy Summer");
+            SceneManager.LoadScene("LazySummerGameScene");
         }
         else if (mapNames[mapSelection.value] == "Icy Islands")
         {
-            SceneManager.LoadScene("Map - Icy Islands");
+            SceneManager.LoadScene("IcyIslandsGameScene");
         }
     }
 }
