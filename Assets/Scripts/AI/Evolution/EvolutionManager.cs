@@ -46,7 +46,8 @@ public class EvolutionManager : MonoBehaviour
     // Population size, to be set in Unity Editor
     private int PopulationSize;
 
-    public int totalGenerationCount = 10; //  not sure if we should expose this
+    [HideInInspector]
+    public int totalGenerationCount; //  not sure if we should expose this
 
     private string saveParameters; // parameters for the salmon from a previous training session
 
@@ -133,8 +134,12 @@ public class EvolutionManager : MonoBehaviour
     void OnEnable()
     {
         PopulationSize = PlayerPrefs.GetInt("popCount", 30);
+        totalGenerationCount = PlayerPrefs.GetInt("totalGenerationCount", 25);
         saveParameters = PlayerPrefs.GetString("saveParameters", "");
         Debug.Log("Population Size: " + PopulationSize);
+
+        if (isMiniGame)
+            totalGenerationCount = 0; // does not end in the minigame, only the time affects the spawning
 
         if (saveParameters == "")
         { 
@@ -156,6 +161,8 @@ public class EvolutionManager : MonoBehaviour
                 Debug.Log("This isnt a minigame, we dont need to load fish parameters");
             }
         }
+
+        Debug.Log("totalGenerationCount: " + totalGenerationCount);
     }
 
     void OnDisable()

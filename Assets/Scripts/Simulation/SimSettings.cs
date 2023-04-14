@@ -79,6 +79,7 @@ public class SimSettings : MonoBehaviour
     {
 
         PlayerPrefs.SetInt("mapSelection", mapSelection.value); // for the gamestatemanager
+        PlayerPrefs.SetInt("totalGenerationCount", (int)totalGenerationCountSlider.value);
 
         if (mapNames[mapSelection.value] == "Autumn Falls")
         {
