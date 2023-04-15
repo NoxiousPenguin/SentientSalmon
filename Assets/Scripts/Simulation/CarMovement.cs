@@ -19,7 +19,7 @@ public class CarMovement : MonoBehaviour
 
     //Movement constants
     private float MAX_VEL = 20f;
-    private float ACCELERATION = 9.0f;
+    private float ACCELERATION = 12.5f;
     private float VEL_FRICT = 2f;
     private float TURN_SPEED = 200;
 

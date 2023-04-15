@@ -38,12 +38,6 @@ public class TrackManager : MonoBehaviour
     private Vector3 startPosition;
     private Quaternion startRotation;
 
-    public Vector3 MiniGameVector
-    {
-        get;
-        set;
-    }
-
     // Struct for storing the current cars and their position on the track.
     private class RaceCar
     {
@@ -149,7 +143,6 @@ public class TrackManager : MonoBehaviour
         }
 
         Instance = this;
-        MiniGameVector = Vector3.zero;
 
         //Get all checkpoints
         checkpoints = GetComponentsInChildren<Checkpoint>();
@@ -205,7 +198,7 @@ public class TrackManager : MonoBehaviour
             for (int toBeAdded = amount - cars.Count; toBeAdded > 0; toBeAdded--)
             {
                 GameObject carCopy = Instantiate(PrototypeCar.gameObject);
-                carCopy.transform.position = startPosition + MiniGameVector;
+                carCopy.transform.position = startPosition;
                 carCopy.transform.rotation = startRotation;
                 CarController controllerCopy = carCopy.GetComponent<CarController>();
                 cars.Add(new RaceCar(controllerCopy, 1));
@@ -231,8 +224,7 @@ public class TrackManager : MonoBehaviour
     {
         foreach (RaceCar car in cars)
         {
-            Debug.Log("value of MiniGameVector: " + MiniGameVector);
-            car.Car.transform.position = startPosition + MiniGameVector;
+            car.Car.transform.position = startPosition;
             car.Car.transform.rotation = startRotation;
             car.Car.Restart();
             car.CheckpointIndex = 1;

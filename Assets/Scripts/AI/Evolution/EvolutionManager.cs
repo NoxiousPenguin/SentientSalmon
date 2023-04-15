@@ -193,20 +193,12 @@ public class EvolutionManager : MonoBehaviour
         NeuralNetwork nn = new NeuralNetwork(FNNTopology);
 
         //Setup genetic algorithm; if minigame then reconstruct the fish from saved parameters
-        if (isMiniGame)
+        if (isMiniGame && saveParameters != "")
         {
-            PopulationSize = 15; // cap at 15 for the minigame
-            if (saveParameters != "")
-            {
-                geneticAlgorithm = new GeneticAlgorithm((uint) nn.WeightCount, (uint) PopulationSize, saveParameters);
-                geneticAlgorithm.InitialisePopulation = GeneticAlgorithm.DoNotPopulationInitialisation; // ignore randomizing parameters
-            }
-            else
-            {
-                geneticAlgorithm = new GeneticAlgorithm((uint) nn.WeightCount, (uint) PopulationSize);
-            }
+            geneticAlgorithm = new GeneticAlgorithm((uint) nn.WeightCount, (uint) PopulationSize, saveParameters);
+            geneticAlgorithm.InitialisePopulation = GeneticAlgorithm.DoNotPopulationInitialisation; // should ignore the randomization portion of parameters
         }
-        
+
         else
         {
             geneticAlgorithm = new GeneticAlgorithm((uint) nn.WeightCount, (uint) PopulationSize);
@@ -354,15 +346,6 @@ public class EvolutionManager : MonoBehaviour
             carsEnum.Current.Agent = agents[i];
             AgentsAliveCount++;
             agents[i].AgentDied += OnAgentDied;
-        }
-
-        // minigame check to randomize spawn location
-        if (isMiniGame)
-        {
-            int random = randomizer.Next(-3, 3);
-            Debug.Log("value of random: " + random);
-            random = random << 1; // value x from {-6,-4,-2,0,2,4,6}
-            TrackManager.Instance.MiniGameVector = new Vector3(random, 0, 0);
         }
 
         TrackManager.Instance.Restart();
