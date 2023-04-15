@@ -1,0 +1,16 @@
+
+2023_04_15_16-31-05 - Evaluation of a Population with size 30, on Track "Autumn Falls Map", using the following GA operators: 
+Selection: DefaultSelectionOperator
+Recombination: DefaultRecombinationOperator
+Mutation: MutateAllButBestTwo
+FitnessCalculation: DefaultFitnessCalculation
+1	0.09494361
+2	0.09516089
+3	0.09558555
+4	0.09583857
+5	0.09622519
+6	0.09635224
+7	0.09655568
+8	0.09666656
+9	0.09691974
+10	0.09527859

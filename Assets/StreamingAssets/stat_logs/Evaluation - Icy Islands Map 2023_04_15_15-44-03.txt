@@ -1,0 +1,16 @@
+
+2023_04_15_15-44-03 - Evaluation of a Population with size 30, on Track "Icy Islands Map", using the following GA operators: 
+Selection: DefaultSelectionOperator
+Recombination: DefaultRecombinationOperator
+Mutation: MutateAllButBestTwo
+FitnessCalculation: DefaultFitnessCalculation
+1	0.06265301
+2	0.06277723
+3	0.06268723
+4	0.06271461
+5	0.07089864
+6	0.06273083
+7	0.08203763
+8	0.07066101
+9	0.06275961
+10	0.06274179
