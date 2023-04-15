@@ -1,0 +1,6 @@
+
+2023_04_15_14-52-14 - Evaluation of a Population with size 30, on Track "Lazy Summer Map", using the following GA operators: 
+Selection: DefaultSelectionOperator
+Recombination: DefaultRecombinationOperator
+Mutation: MutateAllButBestTwo
+FitnessCalculation: DefaultFitnessCalculation
