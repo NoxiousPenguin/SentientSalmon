@@ -9016,9 +9016,9 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Lazy Summer
-      m_Image: {fileID: 0}
     - m_Text: Autumn Falls
+      m_Image: {fileID: 0}
+    - m_Text: Lazy Summer
       m_Image: {fileID: 0}
     - m_Text: Icy Islands
       m_Image: {fileID: 0}
