@@ -130,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 983006570}
     m_Modifications:
-    - target: {fileID: 6968623276154957059, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968623276154957059, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -200
-      objectReference: {fileID: 0}
     - target: {fileID: 6968623276277131325, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
       propertyPath: m_Name
       value: EndTrainingMenu
@@ -225,38 +217,6 @@ PrefabInstance:
     - target: {fileID: 6968623276277131326, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968623276289167937, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968623276289167937, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968623276289167937, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968623276289167937, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968623276289167937, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968623276289167937, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 18.901001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968623276289167937, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968623276289167937, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35b4c6cfc20525e4094bea6378166521, type: 3}
@@ -522,7 +482,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
