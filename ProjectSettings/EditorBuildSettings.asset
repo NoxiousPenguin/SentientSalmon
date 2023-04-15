@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LazySummerGameScene.unity
     guid: 51e1669e73c409b469bb59983580ba28
+  - enabled: 1
+    path: Assets/Scenes/Lazy Summer Map.unity
+    guid: 29cd9b0856cd6294a92fd4e2962826fb
   m_configObjects: {}
