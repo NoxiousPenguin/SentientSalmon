@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 18091137}
   - component: {fileID: 18091139}
   - component: {fileID: 18091138}
-  - component: {fileID: 18091140}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -336,21 +335,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18091136}
   m_CullTransparentMesh: 1
---- !u!114 &18091140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18091136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a85662c4eadb58445b56f3990a5b52f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contextWindow: {fileID: 26576485}
-  recallTextObject: {fileID: 3991893316623682510, guid: 46a08d037052d3a46836ca28624607b1, type: 3}
-  statsList: []
 --- !u!1 &26576484
 GameObject:
   m_ObjectHideFlags: 0
@@ -6851,18 +6835,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 18091140}
-        m_TargetAssemblyTypeName: staticStats, Assembly-CSharp
-        m_MethodName: printStats
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_IsOn: 0
 =======
 >>>>>>> a5b2a54fb2bce61cb6cc5504bc2238463aac7ea3
@@ -7844,18 +7816,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
-      - m_Target: {fileID: 18091136}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1501780433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10286,7 +10246,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056237088}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02a7671ba2f41074b9e6673c2433422c, type: 3}
   m_Name: 

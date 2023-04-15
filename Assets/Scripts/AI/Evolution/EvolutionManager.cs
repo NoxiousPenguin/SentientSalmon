@@ -260,26 +260,12 @@ public class EvolutionManager : MonoBehaviour
     private void WriteStatisticsFileStart()
     {
         
-        string stats =  Environment.NewLine + DateTime.Now.ToString("yyyy_MM_dd_HH-mm-ss") + " - Evaluation of a Population with size " + PopulationSize + 
+        File.WriteAllText( statisticsFileName + ".txt", Environment.NewLine + DateTime.Now.ToString("yyyy_MM_dd_HH-mm-ss") + " - Evaluation of a Population with size " + PopulationSize + 
                 ", on Track \"" + GameStateManager.Instance.TrackName + "\", using the following GA operators: " + Environment.NewLine +
                 "Selection: " + geneticAlgorithm.Selection.Method.Name + Environment.NewLine +
                 "Recombination: " + geneticAlgorithm.Recombination.Method.Name + Environment.NewLine +
                 "Mutation: " + geneticAlgorithm.Mutation.Method.Name + Environment.NewLine + 
-                "FitnessCalculation: " + geneticAlgorithm.FitnessCalculationMethod.Method.Name + Environment.NewLine + 
-                
-                "Population Count: " + PlayerPrefs.GetInt("popCount", 99) + Environment.NewLine + 
-                "Salmon Max Speed: " + PlayerPrefs.GetFloat("salmonMaxSpeed", 99) + Environment.NewLine +
-                "Current Resistance: " + PlayerPrefs.GetFloat("currentResistance", 99) + Environment.NewLine +
-                "Bear Speed: " + PlayerPrefs.GetFloat("bearSpeed", 99) + Environment.NewLine +
-                "SpottingRange: " + PlayerPrefs.GetFloat("spottingRange", 99) + Environment.NewLine ;
-
-
-        File.WriteAllText( statisticsFileName + ".txt",stats);
-
-
-        staticStats.addStats(stats); 
-
-
+                "FitnessCalculation: " + geneticAlgorithm.FitnessCalculationMethod.Method.Name + Environment.NewLine);
     }
 
     // Appends the current generation count and the evaluation of the best genotype to the statistics file.
@@ -288,7 +274,6 @@ public class EvolutionManager : MonoBehaviour
         foreach (Genotype genotype in currentPopulation)
         {
             File.AppendAllText(statisticsFileName + ".txt", geneticAlgorithm.GenerationCount + "\t" + genotype.Evaluation + Environment.NewLine);
-            staticStats.addStats(geneticAlgorithm.GenerationCount + "\t" + genotype.Evaluation + Environment.NewLine); 
             break; //Only write first
         }
     }
@@ -329,13 +314,11 @@ public class EvolutionManager : MonoBehaviour
 
         // rather than restarting, we just end
         Debug.Log("Training Over.");
-        staticStats.addStats("--------------------------------------------");
-        //staticStats.EndofRun(); 
+
         // prompt the end of sim menu
         if (endTrainingMenu != null)
         {
             endTrainingMenu.SetActive(true);
-
             //TextMeshProUGUI evalText = GameObject.Find("Evaluation").GetComponent<TextMeshProUGUI>();
             //TextMeshProUGUI endTrainingScoreText = GameObject.Find("EndGameScoreText").GetComponent<TextMeshProUGUI>();
             //endTrainingScoreText.text = "Score: " + evalText.text;
