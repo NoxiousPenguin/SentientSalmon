@@ -1,0 +1,21 @@
+
+2023_04_15_17-57-22 - Evaluation of a Population with size 30, on Track "Autumn Falls Map", using the following GA operators: 
+Selection: DefaultSelectionOperator
+Recombination: DefaultRecombinationOperator
+Mutation: MutateAllButBestTwo
+FitnessCalculation: DefaultFitnessCalculation
+Population Count: 30
+Salmon Max Speed: 20
+Current Resistance: 2
+Bear Speed: 1
+SpottingRange: 3
+1	0.09513785
+2	0.1061133
+3	0.09828163
+4	0.09549825
+5	0.09536248
+6	0.09562118
+7	0.09784355
+8	0.09834551
+9	0.1022529
+10	0.1009743

@@ -1,0 +1,21 @@
+
+2023_04_15_17-59-18 - Evaluation of a Population with size 20, on Track "Lazy Summer Map", using the following GA operators: 
+Selection: DefaultSelectionOperator
+Recombination: DefaultRecombinationOperator
+Mutation: MutateAllButBestTwo
+FitnessCalculation: DefaultFitnessCalculation
+Population Count: 20
+Salmon Max Speed: 35
+Current Resistance: 1
+Bear Speed: 5
+Spotting Range: 18
+1	0.04010961
+2	0.04190309
+3	0.06659225
+4	0.06664135
+5	0.06715958
+6	0.06668187
+7	0.06670985
+8	0.1095684
+9	0.06708091
+10	0.0670731
